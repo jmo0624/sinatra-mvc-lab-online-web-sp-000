@@ -13,10 +13,10 @@ class PigLatinizer
   end
 
 
-  def translate(word)	  def piglatinize(word)
-    if self.is_vowel?(word)	    if self.is_vowel?(word)
-      word.concat('way')	      word.concat('way')
-    else	    else
+  def piglatinize(word)
+    if self.is_vowel?(word)
+      word.concat('way')
+    else
       word.concat(word.slice!(/^[^aeiou]*/i || "")) + 'ay'	      word.concat(word.slice!(/^[^aeiouAEIOU]*/i || "")) + 'ay'
     end	    end
   end	  end
