@@ -14,12 +14,13 @@ def piglatinize (word)
   end
     word + consonants + 'ay'
   end
-  end	  end
+  end
 end	
 
 
-  def to_pig_latin (sentence)	  def to_pig_latin (sentence)
-    sentence.split.map(&method(:piglatinize)).join(' ')	    sentence.split.map{|word| piglatinize(word)}.join(' ')
-  end	  end
-end 	end 
+def to_pig_latin (sentence)
+  sentence.split.map{|word| piglatinize(word)}.join(' ')
+end
+
+end 
   
