@@ -1,27 +1,18 @@
-	class PigLatinizer
+class PigLatinizer
+  def to_pig_latin(phrase)
+    words = phrase.split(" ")
+    words.collect {|w| piglatinize(w)}.join(" ")
+  end
 
   def piglatinize(word)
-    return word if %w[and an in].include?(word) #one syllable exceptions
-    letters = word.split("")
-    letters.keep_if {|letter| letter != "."}
-    if letters.size > 1
-      until vowel?(letters[0]) 
-        letters << letters.shift
-      end
-      letters  << "ay"
+    parts_of_word = word.split(/([^aeiouAEIOU]*)([aeiouAEIOU]*)(.*)/)
+    # binding.pry
+    start = parts_of_word[1] # consonant cluster
+    rest = parts_of_word[2] + (parts_of_word[3] || "")
+    if start.length>0
+      "#{rest}#{start}ay"
+    else
+      "#{rest}way"
     end
-    letters.join
   end
-
-  def to_pig_latin(text)
-    words = text.split(" ")
-    words.map! {|word| piglatinize(word)}
-    words.join(" ")
-  end
-
-  def vowel?(letter)
-    letter.downcase
-    letter == "o" || letter == "e" || letter == "a" || letter == "i" || letter == "u"
-  end
-
-end 
+end
