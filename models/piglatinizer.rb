@@ -17,15 +17,15 @@ class PigLatinizer
     if self.is_vowel?(word)
       word.concat('way')
     else
-      word.concat(word.slice!(/^[^aeiou]*/i || "")) + 'ay'	      word.concat(word.slice!(/^[^aeiouAEIOU]*/i || "")) + 'ay'
-    end	    end
-  end	  end
+      word.concat(word.slice!(/^[^aeiouAEIOU]*/i || "")) + 'ay'
+    end
+  end
 
 
-  #if the word starts with a vowel add yay to the end	  #if the word starts with a vowel add yay to the end
-  #if the word starts with consonant(s) add the consonants up to the next vowel and ay to the end	  #if the word starts with consonant(s) add the consonants up to the next vowel and ay to the end
-  def translator	  def to_pig_latin(phrase)
-    words = @phrase.split	    phrase.split.collect {|word| piglatinize(word)}.join(' ')
+  #if the word starts with a vowel add yay to the end
+  #if the word starts with consonant(s) add the consonants up to the next vowel and ay to the end
+  def to_pig_latin(phrase)
+    phrase.split.collect {|word| piglatinize(word)}.join(' ')
     new_string = words.map do |word|	
       translate(word)	
     end	
