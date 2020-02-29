@@ -17,12 +17,12 @@ class PigLatinizer
       word + consonants + 'ay'
     end
   end
-end	
+	
 
 
-def to_pig_latin (sentence)
-  sentence.split.map{|word| piglatinize(word)}.join(' ')
-end
+  def to_pig_latin (sentence)
+    sentence.split.map{|word| piglatinize(word)}.join(' ')
+  end
 
 end 
   
