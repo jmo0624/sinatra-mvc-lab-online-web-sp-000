@@ -11,9 +11,9 @@ def piglatinize (word)
   while !vowels.include?(word[0])
     consonants << word[0]
     word = word.split("")[1..-1].join
-      end
-      word + consonants + 'ay'
-    end
+  end
+    word + consonants + 'ay'
+  end
   end	  end
 end	
 
