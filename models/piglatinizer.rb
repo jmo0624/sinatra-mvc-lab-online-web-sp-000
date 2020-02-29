@@ -3,6 +3,9 @@ class PigLatinizer
     words = phrase.split(" ")
     words.collect {|w| piglatinize(w)}.join(" ")
   end
+  
+  def splits
+  end
 
   def piglatinize(word)
     parts_of_word = word.split(/([^aeiouAEIOU]*)([aeiouAEIOU]*)(.*)/)
